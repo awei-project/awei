@@ -1,6 +1,6 @@
-type ExampleEntity @entity {
+type ClaimableTransaction @entity {
   id: Bytes!
-  count: BigInt!
-  previousAdmin: Bytes! # address
-  newAdmin: Bytes! # address
+  sender: Bytes! # Address
+  to: Bytes # Address
+  time: BigInt!
 }

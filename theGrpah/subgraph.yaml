@@ -6,25 +6,19 @@ dataSources:
     name: Contract
     network: goerli
     source:
-      address: "0xca057924353e372d7c46f194ed0d75eaba7f1ed1"
-      abi: Contract
+      address: "0x655F2166b0709cd575202630952D71E2bB0d61Af"
+      abi: DummyToken
       startBlock: 9839751
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
-        - AdminChanged
-        - BeaconUpgraded
-        - Upgraded
+        - ClaimableTransaction
       abis:
-        - name: Contract
+        - name: DummyToken
           file: ./abis/Contract.json
-      eventHandlers:
-        - event: AdminChanged(address,address)
-          handler: handleAdminChanged
-        - event: BeaconUpgraded(indexed address)
-          handler: handleBeaconUpgraded
-        - event: Upgraded(indexed address)
-          handler: handleUpgraded
+      callHandlers:
+        - function: transfer(address,uint256)
+          handler: handleFunctionCall
       file: ./src/contract.ts
