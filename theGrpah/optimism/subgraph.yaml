@@ -1,0 +1,24 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: RabbitHole
+    network: optimism
+    source:
+      address: "0x52629961f71c1c2564c5aa22372cb1b9fa9eba3e"
+      abi: RabbitHole
+      startBlock: 110942020
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - ClaimableTransaction
+      abis:
+        - name: RabbitHole
+          file: ./abis/Contract.json
+      callHandlers:
+        - function: claim(string,bytes32,bytes,address)
+          handler: handleFunctionCall
+      file: ./src/contract.ts

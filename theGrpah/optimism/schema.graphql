@@ -1,0 +1,6 @@
+type ClaimableTransaction @entity {
+  id: Bytes!
+  sender: Bytes! # Address
+  to: Bytes # Address
+  time: BigInt!
+}

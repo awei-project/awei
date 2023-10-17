@@ -1,4 +1,4 @@
-import { FetchResult } from "@/app/api/claim/types";
+import { FetchResult } from "@/app/api/claim/eth/route";
 import useSWRInfinite from "swr/infinite";
 import { useWaitForTransaction } from "wagmi";
 
@@ -9,10 +9,14 @@ export function useEthereumClaimableTransactionQuery(address: string) {
     return `/api/claim/eth?address=${address}&page=${pageIdx}`;
   }
 
-  const { data, size, setSize } = useSWRInfinite<FetchResult>(getKey, fetcher);
+  const { data, isLoading, size, setSize } = useSWRInfinite<FetchResult>(
+    getKey,
+    fetcher
+  );
 
   return {
     txs: data?.flat(),
+    isLoading,
     loadMore() {
       setSize(size + 1);
     },
@@ -33,7 +37,5 @@ export function useEthereumTransaction(hash: `0x${string}`) {
     isLoading: isTxLoading,
     isError: isTxError,
     gasUsed: data?.cumulativeGasUsed,
-    submitRequest: () => {},
-    submitClaim: () => {},
   };
 }
