@@ -18,7 +18,7 @@ type FetchOptions = {
 
 const NetworkConfig = {
   goerli: process.env.THEGRAPH_URL!,
-  optimism: process.env.THEGRAPH_OP_URL!,
+  polygon: process.env.THEGRAPH_POLYGON_URL!,
 } as const;
 
 export async function fetchEthereumTransactions(

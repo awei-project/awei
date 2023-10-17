@@ -12,6 +12,7 @@
   "dependencies": {
     "@axiom-crypto/core": "^0.3.6",
     "@axiom-crypto/experimental": "0.3.8",
+    "@chainlink/functions-toolkit": "^0.2.5",
     "next": "13.5.4",
     "react": "^18",
     "react-dom": "^18",

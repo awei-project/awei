@@ -29,7 +29,7 @@ export async function GET(request: NextRequest) {
   const ethereumTxs = await fetchEthereumTransactions(
     <string>address,
     Math.floor(new Date().getTime() / 1000),
-    "optimism",
+    "polygon",
     { page: page ? parseInt(page) : 1 }
   );
   const result: FetchResult = ethereumTxs.data.claimableTransactions.map(
