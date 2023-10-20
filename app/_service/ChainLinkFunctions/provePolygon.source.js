@@ -28,4 +28,15 @@ const gasUsed = data.result.gasUsed;
 const sender = data.result.from;
 const to = data.result.to;
 
-return Functions.encodeString(JSON.stringify({ gasUsed, sender, to }));
+function pad(content) {
+  return Buffer.from(
+    "0".repeat(66 - content.length) + content.replace("0x", ""),
+    "hex"
+  );
+}
+
+const encodedSender = pad(sender);
+const encodedTo = pad(to);
+const encodedGasUsed = pad(gasUsed);
+
+return Buffer.concat([encodedSender, encodedTo, encodedGasUsed]);
