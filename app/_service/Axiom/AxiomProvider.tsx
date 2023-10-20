@@ -46,10 +46,6 @@ export function useAxiom(txHash: `0x${string}`) {
     });
     await qb.appendTxQuery({
       txHash,
-      field: TransactionField.To,
-    });
-    await qb.appendTxQuery({
-      txHash,
       field: TransactionField.SignatureR,
     });
     await qb.appendTxQuery({
