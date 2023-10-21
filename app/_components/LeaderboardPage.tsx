@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import TotalGweiLeaderboard from "@/components/leaderboard/TotalGweiLeaderboard";
-import SprintGweiLeaderboard from "@/components/leaderboard/SprintGweiLeaderboard";
-import GoerliLeaderboard from "@/components/leaderboard/GoerliLeaderboard";
-import ArbitrumLeaderboard from "@/components/leaderboard/ArbitrumLeaderboard";
-import PolygonLeaderboard from "@/components/leaderboard/PolygonLeaderboard";
+import TotalGweiLeaderboard from "@/app/_components/leaderboard/TotalGweiLeaderboard";
+import SprintGweiLeaderboard from "@/app/_components/leaderboard/SprintGweiLeaderboard";
+import GoerliLeaderboard from "@/app/_components/leaderboard/GoerliLeaderboard";
+import ArbitrumLeaderboard from "@/app/_components/leaderboard/ArbitrumLeaderboard";
+import PolygonLeaderboard from "@/app/_components/leaderboard/PolygonLeaderboard";
 
 const leaderboardLinks = [
   { id: "sprintGwei", name: "Sprint Gwei" },

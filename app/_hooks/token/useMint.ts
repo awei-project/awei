@@ -22,13 +22,19 @@ export function useMint(): MintHookReturnType {
     components: { Config },
   } = useMUD();
   const config = useComponentValue(Config, singletonEntity);
-  const { data, isLoading, isError, error, status, write } = useContractWrite({
-    abi,
-    address: worlds["5"].address as `0x${string}`,
-    functionName: "mint",
-    value: config?.mintPrice,
-  });
-  const { data: txReceipt } = useWaitForTransaction({
+  const { data, isLoading, isError, error, status, write, reset } =
+    useContractWrite({
+      abi,
+      address: worlds["5"].address as `0x${string}`,
+      functionName: "mint",
+      value: config?.mintPrice,
+    });
+  const {
+    data: txReceipt,
+    isLoading: isTxWaiting,
+    error: txError,
+    isError: isTxError,
+  } = useWaitForTransaction({
     hash: data?.hash,
   });
   const tokenIdHex = txReceipt?.logs.find((log) => {
@@ -41,13 +47,16 @@ export function useMint(): MintHookReturnType {
   const tokenId = tokenIdHex ? BigInt(tokenIdHex) : undefined;
 
   return {
-    mint: () => write(),
+    mint: () => {
+      reset();
+      write();
+    },
     price: config?.mintPrice,
     txHash: data?.hash,
-    isMinting: isLoading,
-    isError: isError,
+    isMinting: isLoading || isTxWaiting,
+    isError: isError || isTxError,
     status,
-    error,
+    error: error || txError,
     tokenId,
   };
 }

@@ -63,7 +63,6 @@ async function _setup() {
    * to the viem publicClient to make RPC calls to fetch MUD
    * events from the chain.
    */
-  console.log(world);
   const { components } = await syncToRecs({
     world,
     config: mudConfig,

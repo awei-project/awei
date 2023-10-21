@@ -1,4 +1,4 @@
-import ImageContainer from "@/components/ImageContainer";
+import ImageContainer from "@/app/_components/ImageContainer";
 
 export default function GamePage() {
   return (

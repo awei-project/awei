@@ -1,8 +1,8 @@
 "use client";
 
-import GamePage from "@/pages/GamePage";
-import LeaderboardPage from "@/pages/LeaderboardPage";
-import TopPage from "@/pages/TopPage";
+import GamePage from "@/app/_components/GamePage";
+import LeaderboardPage from "@/app/_components/LeaderboardPage";
+import TopPage from "@/app/_components/TopPage";
 
 export default function Home() {
   return (

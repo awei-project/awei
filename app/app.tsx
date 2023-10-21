@@ -6,6 +6,7 @@ import { goerli } from "viem/chains";
 import { WagmiConfig, createConfig } from "wagmi";
 import { AxiomProvider } from "./_service/Axiom/AxiomProvider";
 import { MUDProvider } from "./_service/Mud/MUDContext";
+import { Toaster } from "react-hot-toast";
 
 const config = createConfig({
   autoConnect: true,
@@ -28,7 +29,10 @@ export function App({ children }: { children: ReactNode }) {
           mock: true,
         }}
       >
-        <MUDProvider>{children}</MUDProvider>
+        <MUDProvider>
+          {children}
+          <Toaster />
+        </MUDProvider>
       </AxiomProvider>
     </WagmiConfig>
   );
