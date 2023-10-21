@@ -6,7 +6,6 @@ import { goerli } from "viem/chains";
 import { WagmiConfig, createConfig } from "wagmi";
 import { AxiomProvider } from "./_service/Axiom/AxiomProvider";
 import { MUDProvider } from "./_service/Mud/MUDContext";
-import { InjectedConnector } from "wagmi/connectors/injected";
 
 const config = createConfig({
   autoConnect: true,
