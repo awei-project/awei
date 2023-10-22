@@ -54,7 +54,7 @@ export default function Leaderboard() {
             Voting for Welcoming New Project
           </div>
           <button className="bg-[#ffffff] rounded-[8px] py-[16px] px-[28px] text-main w-fit font-bold cursor-pointer transform hover:scale-105 transition-transform duration-300">
-            PLAY NOW
+            VOTE NOW
           </button>
         </div>
       </div>
